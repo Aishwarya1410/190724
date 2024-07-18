@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "79a8a074-407d-4d2b-891c-4f12d20cdc82",
+		"name": "Weather Metric",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Fetch Sensor Metric",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Scenario: avg",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/weather/metrics?operations=AVG&date=2024-07-19&metrics=temperature&sensorIds=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"weather",
+						"metrics"
+					],
+					"query": [
+						{
+							"key": "operations",
+							"value": "AVG"
+						},
+						{
+							"key": "date",
+							"value": "2024-07-19"
+						},
+						{
+							"key": "metrics",
+							"value": "temperature"
+						},
+						{
+							"key": "sensorIds",
+							"value": "1"
+						},
+						{
+							"key": "startDate",
+							"value": "2024-07-10",
+							"disabled": true
+						},
+						{
+							"key": "endDate",
+							"value": "2024-07-20",
+							"disabled": true
+						},
+						{
+							"key": "month",
+							"value": "2024-07",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Scenario: max",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Scenario: min",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Scenario: sum",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Scenario: No date, one sensor",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Scenario: No date multiple sensors",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Scenario: multiple metrics,sensors, operations for given date range",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Scenario: No date multiple sensors & metric",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Scenario: metrics at month, multiple sensor and metric",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Scenario: metrics at month, multiple sensor and metric for max",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Scenario: No date multiple sensors & metric on given date",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Scenario: Invalid Operation",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Scenario: Invalid Metric",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Scenario: Case Insensitive Metric Copy",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
