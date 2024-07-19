@@ -8,8 +8,31 @@
 		{
 			"name": "Fetch Sensor Metric",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"metricName\":\"temperature\",\r\n    \"sensorId\": 1,\r\n    \"metricValue\": 30,\r\n    \"timestamp\": \"2024-07-19T15:15:30\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/weather/metrics",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"weather",
+						"metrics"
+					]
+				}
 			},
 			"response": []
 		},
@@ -19,7 +42,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/v1/weather/metrics?operations=AVG&date=2024-07-19&metrics=temperature&sensorIds=1",
+					"raw": "http://localhost:8080/api/v1/weather/metrics?operations=avg&date=2024-07-19&metrics=temperature&sensorIds=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -34,7 +57,7 @@
 					"query": [
 						{
 							"key": "operations",
-							"value": "AVG"
+							"value": "avg"
 						},
 						{
 							"key": "date",
@@ -72,7 +95,39 @@
 			"name": "Scenario: max",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/weather/metrics?operations=max&date=2024-07-19&metrics=temperature&sensorIds=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"weather",
+						"metrics"
+					],
+					"query": [
+						{
+							"key": "operations",
+							"value": "max"
+						},
+						{
+							"key": "date",
+							"value": "2024-07-19"
+						},
+						{
+							"key": "metrics",
+							"value": "temperature"
+						},
+						{
+							"key": "sensorIds",
+							"value": "1"
+						}
+					]
+				}
 			},
 			"response": []
 		},
@@ -80,7 +135,39 @@
 			"name": "Scenario: min",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/weather/metrics?operations=min&date=2024-07-19&metrics=temperature&sensorIds=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"weather",
+						"metrics"
+					],
+					"query": [
+						{
+							"key": "operations",
+							"value": "min"
+						},
+						{
+							"key": "date",
+							"value": "2024-07-19"
+						},
+						{
+							"key": "metrics",
+							"value": "temperature"
+						},
+						{
+							"key": "sensorIds",
+							"value": "1"
+						}
+					]
+				}
 			},
 			"response": []
 		},
@@ -88,7 +175,39 @@
 			"name": "Scenario: sum",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/weather/metrics?operations=sum&date=2024-07-19&metrics=temperature&sensorIds=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"weather",
+						"metrics"
+					],
+					"query": [
+						{
+							"key": "operations",
+							"value": "sum"
+						},
+						{
+							"key": "date",
+							"value": "2024-07-19"
+						},
+						{
+							"key": "metrics",
+							"value": "temperature"
+						},
+						{
+							"key": "sensorIds",
+							"value": "1"
+						}
+					]
+				}
 			},
 			"response": []
 		},
@@ -96,7 +215,41 @@
 			"name": "Scenario: No date, one sensor",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/weather/metrics?metrics=temperature&sensorIds=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"weather",
+						"metrics"
+					],
+					"query": [
+						{
+							"key": "operations",
+							"value": "max",
+							"disabled": true
+						},
+						{
+							"key": "date",
+							"value": "2024-07-19",
+							"disabled": true
+						},
+						{
+							"key": "metrics",
+							"value": "temperature"
+						},
+						{
+							"key": "sensorIds",
+							"value": "1"
+						}
+					]
+				}
 			},
 			"response": []
 		},
@@ -104,7 +257,48 @@
 			"name": "Scenario: No date multiple sensors",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/weather/metrics?operations=min,max&metrics=temperature,humidity&sensorIds=1,2&startDate=2024-07-18&endDate=2024-07-19",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"weather",
+						"metrics"
+					],
+					"query": [
+						{
+							"key": "operations",
+							"value": "min,max"
+						},
+						{
+							"key": "date",
+							"value": "2024-07-19",
+							"disabled": true
+						},
+						{
+							"key": "metrics",
+							"value": "temperature,humidity"
+						},
+						{
+							"key": "sensorIds",
+							"value": "1,2"
+						},
+						{
+							"key": "startDate",
+							"value": "2024-07-18"
+						},
+						{
+							"key": "endDate",
+							"value": "2024-07-19"
+						}
+					]
+				}
 			},
 			"response": []
 		},
@@ -112,7 +306,43 @@
 			"name": "Scenario: multiple metrics,sensors, operations for given date range",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/weather/metrics?operations=min,max&metrics=temperature,humidity&sensorIds=1,2&startDate=2024-07-18&endDate=2024-07-19",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"weather",
+						"metrics"
+					],
+					"query": [
+						{
+							"key": "operations",
+							"value": "min,max"
+						},
+						{
+							"key": "metrics",
+							"value": "temperature,humidity"
+						},
+						{
+							"key": "sensorIds",
+							"value": "1,2"
+						},
+						{
+							"key": "startDate",
+							"value": "2024-07-18"
+						},
+						{
+							"key": "endDate",
+							"value": "2024-07-19"
+						}
+					]
+				}
 			},
 			"response": []
 		},
@@ -120,7 +350,41 @@
 			"name": "Scenario: No date multiple sensors & metric",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/weather/metrics?metrics=temperature,humidity&sensorIds=1,2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"weather",
+						"metrics"
+					],
+					"query": [
+						{
+							"key": "operations",
+							"value": "max",
+							"disabled": true
+						},
+						{
+							"key": "date",
+							"value": "2024-07-19",
+							"disabled": true
+						},
+						{
+							"key": "metrics",
+							"value": "temperature,humidity"
+						},
+						{
+							"key": "sensorIds",
+							"value": "1,2"
+						}
+					]
+				}
 			},
 			"response": []
 		},
@@ -128,7 +392,35 @@
 			"name": "Scenario: metrics at month, multiple sensor and metric",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/weather/metrics?metrics=temperature,humidity&sensorIds=1,2&month=2024-07",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"weather",
+						"metrics"
+					],
+					"query": [
+						{
+							"key": "metrics",
+							"value": "temperature,humidity"
+						},
+						{
+							"key": "sensorIds",
+							"value": "1,2"
+						},
+						{
+							"key": "month",
+							"value": "2024-07"
+						}
+					]
+				}
 			},
 			"response": []
 		},
@@ -136,7 +428,39 @@
 			"name": "Scenario: metrics at month, multiple sensor and metric for max",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/weather/metrics?metrics=temperature,humidity&sensorIds=1,2&operations=max&month=2024-07",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"weather",
+						"metrics"
+					],
+					"query": [
+						{
+							"key": "metrics",
+							"value": "temperature,humidity"
+						},
+						{
+							"key": "sensorIds",
+							"value": "1,2"
+						},
+						{
+							"key": "operations",
+							"value": "max"
+						},
+						{
+							"key": "month",
+							"value": "2024-07"
+						}
+					]
+				}
 			},
 			"response": []
 		},
@@ -144,7 +468,40 @@
 			"name": "Scenario: No date multiple sensors & metric on given date",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/weather/metrics?date=2024-07-18&metrics=temperature,humidity&sensorIds=1,2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"weather",
+						"metrics"
+					],
+					"query": [
+						{
+							"key": "operations",
+							"value": "max",
+							"disabled": true
+						},
+						{
+							"key": "date",
+							"value": "2024-07-18"
+						},
+						{
+							"key": "metrics",
+							"value": "temperature,humidity"
+						},
+						{
+							"key": "sensorIds",
+							"value": "1,2"
+						}
+					]
+				}
 			},
 			"response": []
 		},
@@ -152,7 +509,35 @@
 			"name": "Scenario: Invalid Operation",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/weather/metrics?metrics=temperature&sensorIds=1&operations=test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"weather",
+						"metrics"
+					],
+					"query": [
+						{
+							"key": "metrics",
+							"value": "temperature"
+						},
+						{
+							"key": "sensorIds",
+							"value": "1"
+						},
+						{
+							"key": "operations",
+							"value": "test"
+						}
+					]
+				}
 			},
 			"response": []
 		},
@@ -160,15 +545,71 @@
 			"name": "Scenario: Invalid Metric",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/weather/metrics?metrics=TEST&sensorIds=1&operations=max",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"weather",
+						"metrics"
+					],
+					"query": [
+						{
+							"key": "metrics",
+							"value": "TEST"
+						},
+						{
+							"key": "sensorIds",
+							"value": "1"
+						},
+						{
+							"key": "operations",
+							"value": "max"
+						}
+					]
+				}
 			},
 			"response": []
 		},
 		{
-			"name": "Scenario: Case Insensitive Metric Copy",
+			"name": "Scenario: Case Insensitive Metric",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/weather/metrics?metrics=TEMPERATURE&sensorIds=1&operations=max",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"weather",
+						"metrics"
+					],
+					"query": [
+						{
+							"key": "metrics",
+							"value": "TEMPERATURE"
+						},
+						{
+							"key": "sensorIds",
+							"value": "1"
+						},
+						{
+							"key": "operations",
+							"value": "max"
+						}
+					]
+				}
 			},
 			"response": []
 		}
