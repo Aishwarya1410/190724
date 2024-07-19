@@ -24,6 +24,7 @@ This is a Spring Boot application for managing and querying weather metrics from
 
 - Java 17 or higher
 - Spring Boot 3.0.0
+- Apache Maven 3.9.2
 - H2 Database (for development and testing)
 
 ## Installation
@@ -113,5 +114,6 @@ Note:
 ```
 
 ## Testing
-
-**Postman Collection can be utilized to test all scenarios** :  src\test\resources\postman_collection
+- Can be done through unit test or integration test
+  
+**Postman Collection can also be utilized to test all scenarios** :  src\test\resources\postman_collection\Weather Metric.postman_collection.json
